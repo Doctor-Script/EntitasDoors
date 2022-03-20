@@ -11,17 +11,17 @@ public partial class GameEntity {
     public DoorComponent door { get { return (DoorComponent)GetComponent(GameComponentsLookup.Door); } }
     public bool hasDoor { get { return HasComponent(GameComponentsLookup.Door); } }
 
-    public void AddDoor(bool newIsOpen) {
+    public void AddDoor(DoorState newState) {
         var index = GameComponentsLookup.Door;
         var component = (DoorComponent)CreateComponent(index, typeof(DoorComponent));
-        component.IsOpen = newIsOpen;
+        component.State = newState;
         AddComponent(index, component);
     }
 
-    public void ReplaceDoor(bool newIsOpen) {
+    public void ReplaceDoor(DoorState newState) {
         var index = GameComponentsLookup.Door;
         var component = (DoorComponent)CreateComponent(index, typeof(DoorComponent));
-        component.IsOpen = newIsOpen;
+        component.State = newState;
         ReplaceComponent(index, component);
     }
 
