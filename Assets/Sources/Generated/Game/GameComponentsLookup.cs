@@ -10,16 +10,19 @@ public static class GameComponentsLookup {
 
     public const int Button = 0;
     public const int Door = 1;
+    public const int Player = 2;
 
-    public const int TotalComponents = 2;
+    public const int TotalComponents = 3;
 
     public static readonly string[] componentNames = {
         "Button",
-        "Door"
+        "Door",
+        "Player"
     };
 
     public static readonly System.Type[] componentTypes = {
         typeof(ButtonComponent),
-        typeof(DoorComponent)
+        typeof(DoorComponent),
+        typeof(PlayerComponent)
     };
 }
