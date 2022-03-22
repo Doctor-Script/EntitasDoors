@@ -13,7 +13,7 @@ public class GameController : MonoBehaviour
     {
         contexts = Contexts.sharedInstance;
         systems = new Feature("Systems")
-            .Add(new InputSystems(contexts))
+            .Add(new CollectPlayerInputSystem(contexts))
             .Add(new GameSystems(contexts, playerAgent));// TODO Fix Agent dependency
         systems.Initialize();
     }

@@ -3,10 +3,11 @@ using UnityEngine;
 
 public class CollectPlayerInputSystem : IExecuteSystem
 {
-    private readonly InputContext inputContext;
+    private readonly IGroup<GameEntity> players;
+    
     public CollectPlayerInputSystem(Contexts contexts)
     {
-        inputContext = contexts.input;
+        players = contexts.game.GetGroup(GameMatcher.Player);
     }
     
     public void Execute()
@@ -17,8 +18,8 @@ public class CollectPlayerInputSystem : IExecuteSystem
             Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(mouseRay, out hit))
             {
-                InputEntity entity = inputContext.CreateEntity();
-                entity.AddInput(hit.point);
+                GameEntity playerEntity = players.GetSingleEntity();
+                playerEntity.player.Agent.destination = hit.point;
             }
         }
     }
