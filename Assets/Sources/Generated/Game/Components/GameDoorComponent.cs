@@ -14,14 +14,14 @@ public partial class GameEntity {
     public void AddDoor(DoorState newState) {
         var index = GameComponentsLookup.Door;
         var component = (DoorComponent)CreateComponent(index, typeof(DoorComponent));
-        component.State = newState;
+        component.state = newState;
         AddComponent(index, component);
     }
 
     public void ReplaceDoor(DoorState newState) {
         var index = GameComponentsLookup.Door;
         var component = (DoorComponent)CreateComponent(index, typeof(DoorComponent));
-        component.State = newState;
+        component.state = newState;
         ReplaceComponent(index, component);
     }
 

@@ -25,11 +25,12 @@ public class ButtonBehavior : MonoBehaviour
         GameContext gameContext = Contexts.sharedInstance.game;
         
         GameEntity doorEntity = gameContext.CreateEntity();
+        doorEntity.AddView(door);
         doorEntity.AddDoor(DoorState.Closed);
-        doorEntity.AddDoorListener(door.GetComponent<IDoorListener>());
         door.Link(doorEntity);
 
         buttonEntity = gameContext.CreateEntity();
+        buttonEntity.AddView(gameObject);
         buttonEntity.AddButton(doorEntity);
         gameObject.Link(buttonEntity);
     }

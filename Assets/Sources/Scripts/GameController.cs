@@ -14,7 +14,9 @@ public class GameController : MonoBehaviour
         contexts = Contexts.sharedInstance;
         systems = new Feature("Systems")
             .Add(new CollectPlayerInputSystem(contexts))
-            .Add(new GameSystems(contexts, playerAgent));// TODO Fix Agent dependency
+            
+            .Add(new InitializePlayerSystem(contexts, playerAgent))// TODO Fix Agent dependency
+            .Add(new OpenDoorSystem(contexts));
         systems.Initialize();
     }
 

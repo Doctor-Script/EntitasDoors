@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public PlayerComponent player { get { return (PlayerComponent)GetComponent(GameComponentsLookup.Player); } }
-    public bool hasPlayer { get { return HasComponent(GameComponentsLookup.Player); } }
+    public ViewComponent view { get { return (ViewComponent)GetComponent(GameComponentsLookup.View); } }
+    public bool hasView { get { return HasComponent(GameComponentsLookup.View); } }
 
-    public void AddPlayer(UnityEngine.AI.NavMeshAgent newAgent) {
-        var index = GameComponentsLookup.Player;
-        var component = (PlayerComponent)CreateComponent(index, typeof(PlayerComponent));
-        component.agent = newAgent;
+    public void AddView(UnityEngine.GameObject newValue) {
+        var index = GameComponentsLookup.View;
+        var component = (ViewComponent)CreateComponent(index, typeof(ViewComponent));
+        component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplacePlayer(UnityEngine.AI.NavMeshAgent newAgent) {
-        var index = GameComponentsLookup.Player;
-        var component = (PlayerComponent)CreateComponent(index, typeof(PlayerComponent));
-        component.agent = newAgent;
+    public void ReplaceView(UnityEngine.GameObject newValue) {
+        var index = GameComponentsLookup.View;
+        var component = (ViewComponent)CreateComponent(index, typeof(ViewComponent));
+        component.value = newValue;
         ReplaceComponent(index, component);
     }
 
-    public void RemovePlayer() {
-        RemoveComponent(GameComponentsLookup.Player);
+    public void RemoveView() {
+        RemoveComponent(GameComponentsLookup.View);
     }
 }
 
@@ -40,17 +40,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherPlayer;
+    static Entitas.IMatcher<GameEntity> _matcherView;
 
-    public static Entitas.IMatcher<GameEntity> Player {
+    public static Entitas.IMatcher<GameEntity> View {
         get {
-            if (_matcherPlayer == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Player);
+            if (_matcherView == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.View);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherPlayer = matcher;
+                _matcherView = matcher;
             }
 
-            return _matcherPlayer;
+            return _matcherView;
         }
     }
 }

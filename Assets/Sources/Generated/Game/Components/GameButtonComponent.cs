@@ -14,14 +14,14 @@ public partial class GameEntity {
     public void AddButton(GameEntity newDoorEntity) {
         var index = GameComponentsLookup.Button;
         var component = (ButtonComponent)CreateComponent(index, typeof(ButtonComponent));
-        component.DoorEntity = newDoorEntity;
+        component.doorEntity = newDoorEntity;
         AddComponent(index, component);
     }
 
     public void ReplaceButton(GameEntity newDoorEntity) {
         var index = GameComponentsLookup.Button;
         var component = (ButtonComponent)CreateComponent(index, typeof(ButtonComponent));
-        component.DoorEntity = newDoorEntity;
+        component.doorEntity = newDoorEntity;
         ReplaceComponent(index, component);
     }
 

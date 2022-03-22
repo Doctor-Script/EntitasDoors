@@ -11,24 +11,27 @@ public static class GameComponentsLookup {
     public const int Button = 0;
     public const int ButtonTriggered = 1;
     public const int Door = 2;
-    public const int DoorListener = 3;
-    public const int Player = 4;
+    public const int Player = 3;
+    public const int TweenAnimation = 4;
+    public const int View = 5;
 
-    public const int TotalComponents = 5;
+    public const int TotalComponents = 6;
 
     public static readonly string[] componentNames = {
         "Button",
         "ButtonTriggered",
         "Door",
-        "DoorListener",
-        "Player"
+        "Player",
+        "TweenAnimation",
+        "View"
     };
 
     public static readonly System.Type[] componentTypes = {
         typeof(ButtonComponent),
         typeof(ButtonTriggeredComponent),
         typeof(DoorComponent),
-        typeof(DoorListenerComponent),
-        typeof(PlayerComponent)
+        typeof(PlayerComponent),
+        typeof(TweenAnimationComponent),
+        typeof(ViewComponent)
     };
 }

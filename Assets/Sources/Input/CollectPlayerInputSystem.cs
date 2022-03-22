@@ -19,7 +19,7 @@ public class CollectPlayerInputSystem : IExecuteSystem
             if (Physics.Raycast(mouseRay, out hit))
             {
                 GameEntity playerEntity = players.GetSingleEntity();
-                playerEntity.player.Agent.destination = hit.point;
+                playerEntity.player.agent.destination = hit.point;
             }
         }
     }

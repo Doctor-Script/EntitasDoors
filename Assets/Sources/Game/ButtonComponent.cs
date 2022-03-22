@@ -3,5 +3,5 @@ using Entitas;
 [Game]
 public class ButtonComponent : IComponent
 {
-    public GameEntity DoorEntity;
+    public GameEntity doorEntity;
 }
